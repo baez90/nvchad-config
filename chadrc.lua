@@ -26,13 +26,17 @@ M.plugins = {
          setup_lspconf = "custom.plugins.lspconfig",
       },
    },
+   configs = {
+      treesitter = "custom.plugins.treesitter"
+   },
    -- To change the Packer `config` of a plugin that comes with NvChad,
    -- add a table entry below matching the plugin github name
    --              '-' -> '_', remove any '.lua', '.nvim' extensions
    -- this string will be called in a `require`
    --              use "(custom.configs).my_func()" to call a function
    --              use "custom.blankline" to call a file
-   default_plugin_config_replace = {},
+   default_plugin_config_replace = {
+   },
 }
 
 return M
