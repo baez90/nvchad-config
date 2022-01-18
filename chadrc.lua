@@ -16,18 +16,24 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 -- }
 
 M.ui = {
-   theme = "gruvbox",
+   theme = "gruvchad",
 }
 
 -- NvChad included plugin options & overrides
 M.plugins = {
+   status = {
+     colorizer = true,
+   },
    options = {
+      nvimtree = {
+        enable_git = 1,
+      },
       lspconfig = {
          setup_lspconf = "custom.plugins.lspconfig",
       },
    },
    configs = {
-      treesitter = "custom.plugins.treesitter"
+      treesitter = "custom.plugins.treesitter",
    },
    -- To change the Packer `config` of a plugin that comes with NvChad,
    -- add a table entry below matching the plugin github name
