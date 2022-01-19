@@ -35,7 +35,7 @@ M.setup_lsp = function(attach, capabilities)
 
    lspconfig.golangci_lint_ls.setup {
      init_options = {
-       command = { "golangci-lint", "run", "--out-format", "json" }
+       command = { "golangci-lint", "run", "--out-format", "json" },
      }
    }
 
@@ -43,9 +43,17 @@ M.setup_lsp = function(attach, capabilities)
       cmd = { "/usr/bin/elixir-ls" },
    }
 
+   lspconfig.jsonls.setup {
+     cmd = { "/usr/bin/vscode-json-languageserver", "--stdio" },
+     filetypes = { "json" },
+     root_dir = lspconfig.util.root_pattern(".git"),
+     single_file_support = true
+   }
+
    local pid = vim.fn.getpid()
+
    lspconfig.omnisharp.setup {
-     cmd = {"/usr/bin/omnisharp", "--languageserver", "--hostPID", tostring(pid)};
+     cmd = { "/usr/bin/omnisharp", "--languageserver", "--hostPID", tostring(pid) },
    }
 
    end
