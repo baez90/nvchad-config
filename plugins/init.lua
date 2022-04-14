@@ -1,8 +1,9 @@
 return {
+    {"nathom/filetype.nvim"},
     {
-      "vim-test/vim-test",
-      setup = function()
-        vim.g["test#csharp#runner"] = "dotnettest"
+      "klen/nvim-test",
+      config = function()
+        require('nvim-test').setup()
       end
     },
     {

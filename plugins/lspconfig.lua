@@ -3,7 +3,7 @@ local M = {}
 M.setup_lsp = function(attach, capabilities)
    local lspconfig = require "lspconfig"
 
-   local servers = { "yamlls", "dockerls", "jsonls", "elixirls", "texlab", "omnisharp" }
+   local servers = { "yamlls", "dockerls", "jsonls", "elixirls", "texlab", "omnisharp", "rust_analyzer" }
 
    for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup {
@@ -29,6 +29,7 @@ M.setup_lsp = function(attach, capabilities)
             experimentalPostfixCompletions = true,
             staticcheck = true,
             usePlaceholders = true,
+            buildFlags = {"--tags=sudo"}
          },
       },
    }
